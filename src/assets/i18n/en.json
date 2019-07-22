@@ -1,0 +1,11 @@
+{
+  "Application": {
+    "Translate": {
+      "Title": "Translate",
+      "Languages": {
+        "Spanish": "Spanish",
+        "English": "English"
+      }
+    }
+  }
+}

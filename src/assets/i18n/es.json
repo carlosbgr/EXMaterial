@@ -1,0 +1,11 @@
+{
+  "Application": {
+    "Translate": {
+      "Title": "Traducir",
+      "Languages": {
+        "Spanish": "Español",
+        "English": "Inglés"
+      }
+    }
+  }
+}
