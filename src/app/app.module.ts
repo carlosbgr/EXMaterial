@@ -4,6 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+
 import { CustomMaterialModule } from './core/material.module';
 import { AppRoutingModule } from './core/app-routing.module';
 
@@ -12,6 +16,8 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from './app.component';
+import { ConceptComponent } from './components/concept/concept.component';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 export function httpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -20,6 +26,7 @@ export function httpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
+    ConceptComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +35,8 @@ export function httpLoaderFactory(http: HttpClient) {
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
@@ -41,7 +50,7 @@ export function httpLoaderFactory(http: HttpClient) {
       preventDuplicates: true,
     }),
   ],
-  providers: [],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
